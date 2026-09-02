@@ -1,0 +1,449 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: rgb(37, 37, 37);
+}
+
+.clear{
+    clear: both;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, black,rgb(37, 37, 37));
+    padding: 12px 0;
+    position: fixed;
+    z-index: 999;
+}
+
+.center{
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+.header_left > a > img{
+    width: 120px;
+    padding-top: 12px;
+}
+
+.menu_header{
+    display: inline-block;
+    position: relative;
+    top: -12px;
+}
+
+.menu_header > nav >  a{
+    text-decoration: none;
+    color: white;
+    margin: 0px 15px 0px 15px;
+}
+
+@media screen and (max-width:768px){
+    nav{
+        display: none;
+    }
+}
+
+.header_right{
+    float: right;
+    position: relative;
+    top: -62px;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_right > img{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.search,
+.notifications,
+.perfil{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications{
+    position: relative;
+}
+
+.notifications > p{
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search > img,
+.notifications > img{
+    margin: 0px 15px;
+    padding-top: 5px;
+}
+
+.perfil{
+    width: 60px;
+    height: 60px;
+    background-image: url(images/perfil.png);   
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.destaque{
+    background-image: url(images/banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 100%;
+    height: 850px;
+    position: relative;
+    top: 80px;
+    overflow: hidden;
+}
+
+.texto_destaque{
+    color: white;   
+    padding-top: 200px;
+}
+
+.texto_destaque > h2{
+    color: red;
+    font-size: 70px;
+}
+
+.texto_destaque > h3{
+    font-size: 30px;
+}
+
+.texto_destaque > p{
+    max-width: 500px;
+}
+
+.btn{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn > button{
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+    color: white;
+    padding: 15px 25px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.btn > button:hover{
+    background-color: white;
+    color: black;
+}
+
+@media screen and (max-width:768px) {
+    .destaque{
+        min-height: 700px;
+        padding-top: 150px;
+        background-position: center;
+    }
+
+    .btn > button {
+        margin-top: 10px;
+    }
+
+    .texto_destaque{
+        padding-top: 10px;
+    }
+}
+
+.movies_list{
+    position: relative;
+    top: 100px;
+    color: white;
+}
+
+.categoria {
+    margin: 40px 0;
+    padding: 0 4%;
+}
+
+.categoria h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.lista-filmes {
+    display: flex;
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 0 20px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+}
+
+.lista-filmes::-webkit-scrollbar {
+    display: none;
+}
+
+.filme {
+    position: relative;
+
+    flex: 0 0 200px;
+
+    height: 300px;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    background-color: #181818;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.filme img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.filme:hover {
+    transform: scale(1.08);
+
+    z-index: 10;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.filme:hover img {
+    transform: scale(1.05);
+}
+
+.informacoes {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 40px 12px 12px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.95)
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: 0.3s ease;
+}
+
+
+.filme:hover .informacoes {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.informacoes h3 {
+    color: #fff;
+
+    font-size: 15px;
+
+    margin: 0;
+
+    flex: 1;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.informacoes span {
+    color: #ccc;
+
+    font-size: 12px;
+}
+
+.informacoes .nota {
+    color: #46d369;
+
+    font-weight: bold;
+}
+
+.btn-info {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    border: 1px solid #fff;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    color: #fff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+
+.btn-info:hover {
+    background: #fff;
+
+    color: #000;
+}
+
+.progresso {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background: #555;
+}
+
+
+.barra {
+    width: 55%;
+
+    height: 100%;
+
+    background: #e50914;
+}
+
+@media (max-width: 768px) {
+
+    .categoria {
+        padding: 0 20px;
+        margin: 30px 0;
+    }
+
+    .categoria h2 {
+        font-size: 20px;
+    }
+
+    .filme {
+        flex: 0 0 160px;
+        height: 240px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .categoria {
+        padding: 0 15px;
+        margin: 25px 0;
+    }
+
+    .categoria h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .lista-filmes {
+        gap: 8px;
+    }
+
+    .filme {
+        flex: 0 0 130px;
+        height: 195px;
+    }
+
+    .informacoes {
+        padding: 30px 8px 8px;
+        gap: 5px;
+    }
+
+    .informacoes h3 {
+        font-size: 12px;
+    }
+
+    .informacoes span {
+        font-size: 10px;
+    }
+
+    .btn-info {
+        width: 24px;
+        height: 24px;
+        font-size: 15px;
+    }
+
+}
+
+footer{
+    margin-top: 150px;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to top, black,rgb(37, 37, 37));
+    color: white;
+    text-align: center;
+}

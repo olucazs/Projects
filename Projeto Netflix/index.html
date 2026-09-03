@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,66 +7,65 @@
     <title>Projeto Netflix</title>
 </head>
 <body>
-    <header>
-        <div class="center">
-            <div class="header_left">
-                <a href="#"><img src="images/logo_netflix.png" alt="netflix"></a>
-                <div class="menu_header">
+    
+    <section>
+        <header id="inicio">
+            <div class="center">
+                <div class="header_left">
+                    <div class="logo"><img src="images/logo_netflix.png" alt="netflix"></div><!--LOGO-->
                     <nav>
                         <a href="#inicio">Início</a>
-                        <a href="#series">Séries</a>
                         <a href="#filmes">Filmes</a>
-                        <a href="#">Adicionados</a>
-                        <a href="#">Minha lista</a>
-                    </nav>
+                        <a href="#filmes">Jogos</a>
+                        <a href="#inicio">Minha Lista</a>
+                    </nav><!--NAV-->
+                </div><!--HEADER LEFT-->
+
+                <div class="header_right">
+                    <div class="areaPesquisa">
+                        <input type="text" placeholder="Títulos, gente e gêneros">
+                        <img src="images/lupa.png" width="30px" alt="lupa" onclick="searchBar()">
+                    </div><!--ÁREA DE PESQUISA-->
+
+                    <div class="areaNotificacao">
+                        <img src="images/notificacao.png" width="30px" alt="notificação"> <span>1</span>
+                    </div><!--NOTIFICAÇÃO-->
+
+                    <div class="perfil">
+                        <img src="images/perfil.png" width="30px" alt="perfil">
+                    </div><!--PERFIL-->
+                </div><!--HEADER RIGHT-->
+
+            </div>
+        </header><!--HEADER-->
+    </section><!--HEADER-->
+
+    <section class="intro center" id="inicio">
+            <div class="intro">
+                <div class="intro_info">
+                    <h1>Cavaleiros do Zodíaco</h1>
+                    <p>Os Cavaleiros do Zodíaco (Saint Seiya) conta a história de jovens guerreiros místicos que vestem armaduras sagradas baseadas em constelações para proteger a reencarnação da deusa grega Atena.</p>
+                </div>
+
+                <div class="intro_buttons">
+                    <button>Assistir</button>
+                    <button>Mais informações</button>
                 </div>
             </div>
-
-            <div class="header_right">
-                <div class="search">
-                    <img src="images/lupa.png" width="30px" alt="search">
-                </div>
-
-                <div class="notifications">
-                    <p>1</p>
-                    <img src="images/notificacao.png" width="30px" alt="notification">
-                </div>
-
-                <div class="perfil"></div>
-            </div>
-        </div>
-
-        <div class="clear"></div>
-    </header>
-
-    <section class="destaque">
-        <div class="center texto_destaque">
-            <h2>Cavaleiros Do Zodíaco</h2>
-            <br>
-
-            <h3>Assita a temporada 2 agora</h3>
-            <br>
-
-            <p> A história segue Seiya, o Cavaleiro de Pégaso, e seus amigos (Shiryu, Hyoga, Shun e Ikki) enquanto vestem armaduras sagradas baseadas em constelações e utilizam uma energia interior chamada Cosmo.</p>
-            <br>
-
-            <div class="btn">
-                <button>Assistir</button>
-                <button>Minha lista</button>
-                <button>Mais informações</button>
-            </div>
-        </div>
     </section>
 
-    <section class="movies_list">
-        <div id="catalogo"></div>
-    </section>
+     <main class="center" id="filmes">
 
-    <footer>
-        <p><b>This site was made by @olucazs - As a college exercise!</b></p>
+        <section id="catalogo"></section>
+
+    </main>
+
+    <footer class="center">
+            <p>&copy; 2026 Projeto Netflix. Nenhum dos direitos reservados. (feito apenas para fins educacionais)</p>
     </footer>
-    
+
 </body>
 
+<script src="../../Aulas dev-web/jquery.js"></script>
 <script src="index.js"></script>
 </html>

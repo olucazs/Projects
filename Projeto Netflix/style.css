@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif ;
+    font-family: "Helvetica";
 }
 
 html{
@@ -10,205 +10,262 @@ html{
 }
 
 body{
-    background-color: rgb(37, 37, 37);
+    background-color: rgb(26, 26, 26);
+    overflow-x: hidden;
 }
 
-.clear{
-    clear: both;
+.center{
+    width: 93%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 header{
     width: 100%;
-    height: 80px;
-    background: linear-gradient(to bottom, black,rgb(37, 37, 37));
-    padding: 12px 0;
-    position: fixed;
-    z-index: 999;
-}
-
-.center{
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 0 2%;
-}
-
-.header_left > a > img{
-    width: 120px;
-    padding-top: 12px;
-}
-
-.menu_header{
-    display: inline-block;
-    position: relative;
-    top: -12px;
-}
-
-.menu_header > nav >  a{
-    text-decoration: none;
+    height: 85px;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     color: white;
-    margin: 0px 15px 0px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.4s ease;
 }
 
-@media screen and (max-width:768px){
-    nav{
+header.scrolled {
+    background: #000;
+}
+
+.header_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1100px;
+}
+
+div.logo{
+    margin-right: 10px;
+}
+
+div.logo > img {
+    width: 80px;
+    padding-top: 5px;
+}
+
+.header_left > nav > a{
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+    font-size: 17px;
+    font-weight: bold;
+    padding: 15px 20px;
+}
+
+.header_left > nav > a:hover{
+    background-color: rgb(39, 39, 39);
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 1024px) {
+    .header_left > nav{
         display: none;
+    }
+
+    .header_left{
+        max-width: 100px;
     }
 }
 
 .header_right{
-    float: right;
-    position: relative;
-    top: -62px;
-    height: 78px;
+    width: 650px;
+    height: 80px;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: end;
 }
 
-.header_right > img{
-    cursor: pointer;
-    display: inline-block;
+.header_right > div{
+    margin-left: 25px;
 }
 
-.search,
-.notifications,
-.perfil{
-    display: inline-block;
-    cursor: pointer;
-}
-
-.notifications{
-    position: relative;
-}
-
-.notifications > p{
-    position: absolute;
-    left: 10px;
-    top: -5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: red;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-}
-
-.search > img,
-.notifications > img{
-    margin: 0px 15px;
-    padding-top: 5px;
-}
-
-.perfil{
-    width: 60px;
-    height: 60px;
-    background-image: url(images/perfil.png);   
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.destaque{
-    background-image: url(images/banner.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    width: 100%;
-    height: 850px;
-    position: relative;
-    top: 80px;
-    overflow: hidden;
-}
-
-.texto_destaque{
-    color: white;   
-    padding-top: 200px;
-}
-
-.texto_destaque > h2{
-    color: red;
-    font-size: 70px;
-}
-
-.texto_destaque > h3{
-    font-size: 30px;
-}
-
-.texto_destaque > p{
-    max-width: 500px;
-}
-
-.btn{
+.areaPesquisa {
     display: flex;
-    flex-wrap: wrap;
-}
-
-.btn > button{
+    align-items: center;
     cursor: pointer;
-
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    
-
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-
-    color: white;
-    padding: 15px 25px;
-    font-size: 20px;
-    margin-right: 10px;
 }
 
-.btn > button:hover{
+.areaNotificacao{
+    cursor: pointer;
+    position: relative;
+}
+
+.areaNotificacao > span{
+    color: white;
+    padding: 4px 9px;
+    border-radius: 15px;
+    background-color: red;
+
+    position: absolute;
+    top: -10px;
+    right: 10px;
+}
+
+.perfil{
+    cursor: pointer;
+}
+
+.areaPesquisa > input {
+    display: none;
+    width: 420px;
+    height: 60px;
+    padding: 15px 50px;
+    margin-right: 15px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 30px;
+    background-color: rgb(26, 26, 26);
+}
+
+.areaPesquisa > input::placeholder{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+    .areaPesquisa > input{
+        display: block;
+        width: 215px;
+        height: 20px;
+    }
+
+    .areaPesquisa > img,
+    .areaNotificacao > img,
+    .areaNotificacao > span{
+        display: none;
+    }
+
+    .perfil > img{
+        width: 45px;
+    }
+}
+
+section.intro{
+    margin-top: 90px;
+}
+
+div.intro{
+    background-image: url(images/banner1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 820px;
+    border-radius: 20px;
+}
+
+.intro_info{
+    padding: 300px 0px 0px 55px;
+    color: white;
+    max-width: 600px;
+}
+
+.intro_info > h1{
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.intro_info > p{
+    font-size: 25px;
+}
+
+.intro_buttons{
+    padding: 20px 0px 0px 55px;
+}
+
+.intro_buttons > button{
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(104, 104, 104);
+    opacity: 0.8;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.intro_buttons > button:hover{
     background-color: white;
     color: black;
+    transition: 0.3s;
 }
 
-@media screen and (max-width:768px) {
-    .destaque{
-        min-height: 700px;
-        padding-top: 150px;
+@media screen and (max-width: 768px) {
+    div.intro{
         background-position: center;
     }
 
-    .btn > button {
-        margin-top: 10px;
-    }
-
-    .texto_destaque{
-        padding-top: 10px;
+    .intro_buttons{
+        display: flex;
+        flex-direction: row;
+        padding: 20px 0px 0px 35px;
     }
 }
 
-.movies_list{
-    position: relative;
-    top: 100px;
+#catalogo {
+    width: 100%;
+    padding: 40px 0;
     color: white;
 }
 
 .categoria {
-    margin: 40px 0;
-    padding: 0 4%;
+    width: 100%;
+    margin-bottom: 45px;
 }
 
 .categoria h2 {
-    color: #fff;
     font-size: 24px;
+    font-weight: 700;
+
+    margin-left: 4%;
+    margin-bottom: 8px;
+}
+
+.categoria-descricao {
+    color: #a7a7a7;
+
+    font-size: 15px;
+
+    margin-left: 4%;
     margin-bottom: 18px;
+
+    max-width: 700px;
+
+    line-height: 1.5;
+}
+
+.lista-container {
+    position: relative;
+
+    width: 100%;
 }
 
 .lista-filmes {
     display: flex;
+
     gap: 10px;
 
     overflow-x: auto;
-    overflow-y: hidden;
-
-    padding: 10px 0 20px;
 
     scroll-behavior: smooth;
+
+    padding: 5px 4% 15px;
 
     scrollbar-width: none;
 }
@@ -218,24 +275,25 @@ header{
 }
 
 .filme {
+    flex: 0 0 180px;
+
+    height: 270px;
+
     position: relative;
 
-    flex: 0 0 200px;
-
-    height: 300px;
-
-    border-radius: 6px;
+    border-radius: 5px;
 
     overflow: hidden;
-
-    background-color: #181818;
 
     cursor: pointer;
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        filter 0.3s ease;
+
+    background-color: #181818;
 }
+
 
 .filme img {
     width: 100%;
@@ -244,23 +302,15 @@ header{
     object-fit: cover;
 
     display: block;
-
-    transition: transform 0.4s ease;
 }
 
 .filme:hover {
     transform: scale(1.08);
 
-    z-index: 10;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 5;
 }
 
-.filme:hover img {
-    transform: scale(1.05);
-}
-
-.informacoes {
+.filme-titulo {
     position: absolute;
 
     bottom: 0;
@@ -268,182 +318,198 @@ header{
 
     width: 100%;
 
-    padding: 40px 12px 12px;
+    padding: 35px 10px 10px;
 
     background: linear-gradient(
         transparent,
         rgba(0, 0, 0, 0.95)
     );
 
-    display: flex;
+    font-size: 14px;
 
-    align-items: center;
-
-    gap: 8px;
+    font-weight: bold;
 
     opacity: 0;
 
-    transform: translateY(10px);
-
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
-
-.filme:hover .informacoes {
+.filme:hover .filme-titulo {
     opacity: 1;
-
-    transform: translateY(0);
 }
 
-.informacoes h3 {
-    color: #fff;
+.seta {
+    position: absolute;
 
-    font-size: 15px;
+    top: 50%;
 
-    margin: 0;
+    transform: translateY(-50%);
 
-    flex: 1;
+    width: 50px;
+    height: 50px;
 
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-}
-
-
-.informacoes span {
-    color: #ccc;
-
-    font-size: 12px;
-}
-
-.informacoes .nota {
-    color: #46d369;
-
-    font-weight: bold;
-}
-
-.btn-info {
-    width: 28px;
-    height: 28px;
-
+    border: none;
     border-radius: 50%;
 
-    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.65);
 
-    background: rgba(0, 0, 0, 0.5);
+    color: white;
 
-    color: #fff;
-
-    font-size: 18px;
-
-    cursor: pointer;
+    font-size: 35px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    transition: 0.2s;
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        background-color 0.2s ease,
+        opacity 0.2s ease;
 }
 
-
-.btn-info:hover {
-    background: #fff;
-
-    color: #000;
+.seta:hover {
+    background-color: white;
+    color: black;
 }
-
-.progresso {
-    position: absolute;
-
-    bottom: 0;
-
+.seta-esquerda {
     left: 0;
+}
 
-    width: 100%;
-
-    height: 4px;
-
-    background: #555;
+.seta-direita {
+    right: 0;
 }
 
 
-.barra {
-    width: 55%;
+@media (max-width: 900px) {
 
-    height: 100%;
-
-    background: #e50914;
-}
-
-@media (max-width: 768px) {
+    #catalogo {
+        padding-top: 30px;
+    }
 
     .categoria {
-        padding: 0 20px;
-        margin: 30px 0;
+        margin-bottom: 35px;
     }
 
     .categoria h2 {
-        font-size: 20px;
+        font-size: 21px;
+
+        margin-left: 3%;
+    }
+
+    .categoria-descricao {
+        margin-left: 3%;
+        margin-right: 3%;
+
+        font-size: 14px;
+    }
+
+    .lista-filmes {
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
     .filme {
         flex: 0 0 160px;
+
         height: 240px;
     }
 
+    .seta {
+        width: 40px;
+        height: 70px;
+
+        font-size: 30px;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+
+    #catalogo {
+        padding-top: 20px;
+    }
 
     .categoria {
-        padding: 0 15px;
-        margin: 25px 0;
+        margin-bottom: 30px;
     }
 
     .categoria h2 {
-        font-size: 18px;
+        font-size: 19px;
+
+        margin-left: 20px;
+        margin-bottom: 6px;
+    }
+
+    .categoria-descricao {
+        font-size: 13px;
+
+        margin-left: 20px;
+        margin-right: 20px;
+
         margin-bottom: 12px;
     }
 
     .lista-filmes {
         gap: 8px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+
+        scroll-snap-type: x mandatory;
     }
 
     .filme {
-        flex: 0 0 130px;
-        height: 195px;
+        flex: 0 0 135px;
+
+        height: 200px;
+
+        scroll-snap-align: start;
     }
 
-    .informacoes {
-        padding: 30px 8px 8px;
-        gap: 5px;
-    }
-
-    .informacoes h3 {
+    .filme-titulo {
         font-size: 12px;
+        padding: 30px 7px 7px;
     }
 
-    .informacoes span {
-        font-size: 10px;
+    .seta {
+        width: 35px;
+        height: 60px;
+
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .filme {
+        flex: 0 0 120px;
+
+        height: 180px;
     }
 
-    .btn-info {
-        width: 24px;
-        height: 24px;
-        font-size: 15px;
+    .categoria h2 {
+        font-size: 18px;
     }
 
+    .seta {
+        width: 30px;
+        height: 55px;
+
+        font-size: 22px;
+    }
 }
 
 footer{
-    margin-top: 150px;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(to top, black,rgb(37, 37, 37));
+    height: 80px;
+}
+
+footer > p{
     color: white;
-    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    padding-bottom: 50px;
 }
